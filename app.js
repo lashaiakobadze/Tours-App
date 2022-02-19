@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const compression = require('compression');
 const cors = require('cors');
 
@@ -153,7 +154,7 @@ app.use('/api', limiter);
 // Stripe specific security system.
 app.post(
   '/webhooks-checkout',
-  express.raw({ type: 'application.json' }),
+  bodyParser.raw({ type: 'application.json' }),
   bookingController.webhooksCheckout
 );
 
