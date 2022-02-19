@@ -5,8 +5,8 @@ export const hideAlert = () => {
   if (el) el.parentElement.removeChild(el);
 };
 
-// type is success or error
-export const showAlert = (type, msg, time = 7) => {
+// Alert dynamic popup
+export const showAlert = (type, msg, time = 5) => {
   hideAlert();
   const markup = `<div class="alert alert--${type}">${msg} </div> `;
 
