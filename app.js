@@ -20,6 +20,10 @@ const viewRouter = require('./routes/viewRoutes');
 // Start express app
 const app = express();
 
+// დავამტეთ, პროდაქშენზე cookieOptions.secure-ის გასამართად.
+// კონკრეტულად 'x-forwarded=proto'-თვის, რომ ამოიკითხოს მნიშვნელობა.
+app.enable('trust proxy');
+
 // view engine რაც ერთგვარი პროტოკოლია პროდაქშენზე ჩვენი კოდის გასაპარსად.
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
